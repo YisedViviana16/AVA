@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Misión Autonomía · AVA</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Alfa+Slab+One&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--sand:#C9AE8A;--gold:#A67C3D;--gold2:#8C6529;--tx:#2A1E10;--card:#fff;--ln:#E6DAC8;--hd:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1D160D;--sand:#3A2D1C;--gold:#D9A957;--gold2:#E9BE72;--tx:#F3E9D8;--card:#2A2015;--ln:#4A3A25;--hd:#1D160D}}
+:root[data-theme="dark"]{--bg:#1D160D;--sand:#3A2D1C;--gold:#D9A957;--gold2:#E9BE72;--tx:#F3E9D8;--card:#2A2015;--ln:#4A3A25;--hd:#1D160D}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:300 17px/1.6 Ubuntu,system-ui,sans-serif}
+h1,h2,h3{font-family:Outfit,system-ui,sans-serif;margin:0}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--hd);border-bottom:1px solid var(--ln);display:flex;justify-content:flex-end;align-items:center;gap:22px;padding:12px 24px;flex-wrap:wrap}
+header a{color:var(--gold);text-decoration:none;font-weight:400}
+header a:hover{text-decoration:underline}
+.pill{background:var(--gold);color:#fff!important;border:0;border-radius:999px;padding:14px 26px;font:600 15px Outfit,sans-serif;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block}
+.pill:hover{background:var(--gold2);text-decoration:none!important}
+:focus-visible{outline:3px solid var(--gold2);outline-offset:3px}
+.hero{display:grid;grid-template-columns:1.3fr 1fr;align-items:center;gap:20px;padding:50px 24px 60px;max-width:1150px;margin:0 auto}
+.wood{font:400 clamp(46px,9vw,112px)/.95 'Alfa Slab One',Georgia,serif;margin:0 0 18px;background:repeating-linear-gradient(95deg,#B88A45 0 7px,#9A6F32 7px 10px,#C79B55 10px 16px);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:1px}
+.hero p{max-width:46ch;margin:0 0 24px;font-size:19px}
+.compass{width:100%;max-width:340px;justify-self:center}
+.compass .n{transform-origin:100px 100px;animation:sw 4s ease-in-out infinite alternate}
+@keyframes sw{from{transform:rotate(-25deg)}to{transform:rotate(35deg)}}
+section{padding:60px 24px}
+.in{max-width:1100px;margin:0 auto}
+h2{font-size:clamp(30px,5vw,48px);font-weight:800;color:var(--gold);line-height:1.12;margin-bottom:14px}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:22px}
+.why div{border-left:5px solid var(--gold);padding:4px 0 4px 16px}
+.why b{font:600 19px Outfit,sans-serif;display:block;color:var(--gold)}
+.sand{background:var(--sand)}
+.sand h2{color:#fff}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .sand h2{color:var(--gold2)}}
+:root[data-theme="dark"] .sand h2{color:var(--gold2)}
+.bar{display:flex;align-items:center;gap:14px;margin:6px 0 30px;flex-wrap:wrap}
+.track{flex:1 1 220px;height:14px;border-radius:9px;background:rgba(255,255,255,.55);overflow:hidden}
+.track i{display:block;height:100%;width:0;background:var(--gold);transition:width .5s}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px 36px}
+.ph{text-align:center}
+.vid{position:relative;aspect-ratio:16/9;background:#000;border:0;width:100%;border-radius:4px;overflow:hidden;cursor:pointer;display:grid;place-items:center;color:#fff;font:600 15px Outfit,sans-serif}
+.vid::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#4a3318,#1a110a 70%)}
+.vid span{position:relative;display:grid;place-items:center;gap:8px}
+.vid svg{width:62px;height:44px}
+.ph h3{font-size:23px;margin:18px 0 8px}
+.ph p{text-align:left;margin:0 0 14px;font-size:16px}
+.chk{background:none;border:2px solid var(--gold);color:var(--gold);border-radius:999px;padding:9px 18px;font:600 14px Outfit,sans-serif;cursor:pointer}
+.sand .chk{border-color:#fff;color:#fff}
+.chk.on{background:var(--gold);border-color:var(--gold);color:#fff}
+.honor{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.cardh{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:24px}
+.cardh input{width:100%;font:inherit;padding:13px 16px;border:2px solid var(--ln);border-radius:12px;background:var(--bg);color:var(--tx);margin:12px 0}
+.cardh input:disabled{opacity:.5}
+.cred{max-height:230px;overflow:auto;margin-top:16px;text-align:center;font:600 20px Outfit,sans-serif;color:var(--gold)}
+.cred div{padding:5px 0}
+.msg{font-size:15px;min-height:24px}
+footer{background:#2A1E10;color:#E9D9BC;text-align:center;padding:28px 24px;font-size:15px}
+@media(max-width:760px){.hero,.honor{grid-template-columns:1fr}header{justify-content:center;gap:12px}}
+@media(prefers-reduced-motion:reduce){.compass .n{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+<a href="#inicio">Inicio</a><a href="#porque">¿Por qué esta misión?</a><a href="#fases">Fases</a><a href="#honor">Cuadro de honor</a>
+<a class="pill" href="#fases">Comienza tu misión</a>
+</header>
+
+<main id="inicio">
+<div class="hero">
+<div>
+<h1 class="wood">MISIÓN<br>AUTONOMÍA</h1>
+<p>Un recorrido de seis fases en el que tú decides, creas y resuelves retos de tu entorno. Cada fase completada suma puntos y te acerca a los créditos del proyecto.</p>
+<a class="pill" href="#fases">Empieza la primera fase</a>
+</div>
+<svg class="compass" viewBox="0 0 200 200" role="img" aria-label="Brújula dorada">
+<circle cx="100" cy="100" r="92" fill="none" stroke="#A67C3D" stroke-width="8"/>
+<circle cx="100" cy="100" r="76" fill="none" stroke="#C9AE8A" stroke-width="3" stroke-dasharray="3 7"/>
+<g class="n"><polygon points="100,26 114,100 100,112 86,100" fill="#A67C3D"/><polygon points="100,174 114,100 100,112 86,100" fill="#C9AE8A"/></g>
+<circle cx="100" cy="100" r="8" fill="#2A1E10"/>
+</svg>
+</div>
+
+<section id="porque"><div class="in">
+<h2>¿Por qué esta misión?</h2>
+<p>Aprender más por cuenta propia no es un talento, es una práctica. Aquí la entrenas con retos reales y juego.</p>
+<div class="why">
+<div><b>Decides tú</b>Eliges retos, ritmo y camino sin esperar cada instrucción.</div>
+<div><b>Creas algo real</b>Cada fase termina en un producto de tu proyecto, no en una tarea suelta.</div>
+<div><b>Avanzas en equipo</b>Compartes, recibes comentarios y celebras con tu grupo.</div>
+</div></div></section>
+
+<section class="sand" id="fases"><div class="in">
+<h2>Las seis fases</h2>
+<div class="bar"><b id="pt" style="color:#fff;font-family:Outfit">0 XP · Explorador/a</b><div class="track"><i id="tr"></i></div></div>
+<div class="grid" id="grid"></div>
+</div></section>
+
+<section id="honor"><div class="in honor">
+<div>
+<h2>¿Quieres que tu nombre aparezca en los créditos?</h2>
+<p id="hint">Completa las seis fases para desbloquear tu lugar en los créditos de la misión.</p>
+</div>
+<div class="cardh">
+<b style="font:600 20px Outfit">Créditos de la misión</b>
+<input id="nm" type="text" placeholder="Escribe tu nombre" maxlength="40" aria-label="Tu nombre" disabled>
+<button class="pill" id="add" disabled>Poner mi nombre</button>
+<div class="msg" id="msg" role="status"></div>
+<div class="cred" id="cred"></div>
+</div>
+</div></section>
+</main>
+<footer>Misión Autonomía · AVA basado en Aprendizaje por Proyectos y Gamificación</footer>
+
+<script>
+var P=[
+{t:'1. Cimientos: conoce la misión',d:'Descubre la historia, las reglas del juego y cómo ganar puntos e insignias.',p:20,u:''},
+{t:'2. Reto: la pregunta que te mueve',d:'Una situación real de tu barrio o colegio. Tú eliges qué problema quieres resolver.',p:25,u:''},
+{t:'3. Exploración: elige tu camino',d:'Escoge entre retos de tres niveles y usa los recursos a tu ritmo.',p:30,u:''},
+{t:'4. Creación: arma tu proyecto',d:'Con tu equipo, define roles, lleva una bitácora y construye tu producto.',p:30,u:''},
+{t:'5. Socialización: muéstralo',d:'Presenta tu proyecto en la galería y comenta el trabajo de otros equipos.',p:25,u:''},
+{t:'6. Cierre: evalúa tu autonomía',d:'Revisa tu proceso con la rúbrica y escribe qué aprendiste y qué sigue.',p:25,u:''}];
+var LV=[[0,'Explorador/a'],[40,'Constructor/a'],[90,'Estratega'],[155,'Maestro/a de la misión']];
+var K='ava_ma_v1',S={d:[],n:[]};
+try{var r=JSON.parse(localStorage.getItem(K)||'null');if(r)S=r}catch(e){}
+function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+var PLAY='<svg viewBox="0 0 68 48"><rect width="68" height="48" rx="12" fill="#ff0033"/><path d="M27 14l20 10-20 10z" fill="#fff"/></svg>';
+function xp(){return P.reduce(function(a,x,i){return a+(S.d.indexOf(i)>-1?x.p:0)},0)}
+function draw(){
+var tot=P.reduce(function(a,x){return a+x.p},0),g=xp(),l=LV[0][1];LV.forEach(function(v){if(g>=v[0])l=v[1]});
+pt.textContent=g+' XP · '+l;tr.style.width=(g/tot*100)+'%';
+grid.innerHTML=P.map(function(x,i){var on=S.d.indexOf(i)>-1;
+return '<article class="ph"><button class="vid" data-v="'+i+'" aria-label="Ver video de la fase '+(i+1)+'"><span>'+PLAY+(x.u?'Mirar en YouTube':'Aquí va el video de la fase')+'</span></button><h3>'+x.t+'</h3><p>'+x.d+' <b>+'+x.p+' XP</b></p><button class="chk'+(on?' on':'')+'" data-c="'+i+'" aria-pressed="'+on+'">'+(on?'✓ Fase completada':'Marcar como completada')+'</button></article>'}).join('');
+var all=S.d.length==P.length;nm.disabled=add.disabled=!all;
+hint.textContent=all?'¡Lo lograste! Escribe tu nombre para que aparezca en los créditos.':'Completa las seis fases para desbloquear tu lugar en los créditos de la misión. Llevas '+S.d.length+' de '+P.length+'.';
+cred.innerHTML=S.n.length?S.n.map(function(n){return '<div></div>'}).join(''):'';
+var ds=cred.children;S.n.forEach(function(n,i){ds[i].textContent=n});
+if(!S.n.length)cred.innerHTML='<div style="font-weight:300;font-size:15px;color:inherit">Aún no hay nombres. Sé la primera persona.</div>';
+}
+document.addEventListener('click',function(e){
+var c=e.target.closest('[data-c]'),v=e.target.closest('[data-v]');
+if(c){var i=+c.dataset.c,k=S.d.indexOf(i);k>-1?S.d.splice(k,1):S.d.push(i);save();draw()}
+else if(v){var u=P[+v.dataset.v].u;if(u)window.open(u,'_blank','noopener');else msg.textContent='Edita la lista P del código y pega el enlace de YouTube en «u».'}
+else if(e.target.id=='add'){var n=nm.value.trim();if(!n){msg.textContent='Escribe tu nombre primero.';return}S.n.push(n);nm.value='';msg.textContent='Listo, tu nombre ya está en los créditos.';save();draw()}
+});
+draw();
+</script>
+</body>
+</html>
